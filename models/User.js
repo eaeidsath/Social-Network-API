@@ -22,6 +22,11 @@ const userSchema = new Schema(
         },
         thoughts: [thoughtSchema],
         friends: [this]
+    },
+    {
+        toJSON: {
+          getters: true,
+        },
     }
 );
 
