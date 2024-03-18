@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+const { Schema, Types, model } = require('mongoose');
 const thoughtSchema = require('./Thought');
 
 const userSchema = new Schema(
@@ -21,7 +21,9 @@ const userSchema = new Schema(
             }
         },
         thoughts: [thoughtSchema],
-        friends: [this]
+        friends: [{
+            parent: { type: Schema.Types.ObjectId, ref: 'user'},
+        }]
     },
     {
         toJSON: {
@@ -29,6 +31,17 @@ const userSchema = new Schema(
         },
     }
 );
+
+userSchema
+    .virtual('friendCount')
+    .get(function () {
+        return `${this.first} ${this.last}`;
+    })
+    .set(function (v) {
+        const first = v.split(' ')[0];
+        const last = v.split(' ')[1];
+        this.set({ first, last });
+    });
 
 const User = model('user', userSchema);
 
