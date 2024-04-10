@@ -37,7 +37,7 @@ Send the GET, POST, PUT, and DELETE requests to view and manipulate the data in 
 ### Video
 
 Click the following image to watch a video demonstrating the functionality of the GET, POST, PUT, and DELETE routes.
-<!-- [![Video Demonstration](./media/video_screenshot.png)](https://youtu.be/lMwiu-GUd1A "Video Demonstration Link") -->
+[![Video Demonstration](./media/demo-video-screenshot.png)](https://youtu.be/bnif7DOXtMo "Video Demonstration Link")
 
     
 ## Contributing
